@@ -1,5 +1,6 @@
 var timer = document.getElementById("timer");
-var start = document.getElementById("start-button")
+var startScreen = document.getElementById("startScreen");
+var start = document.getElementById("start-button");
 
 var message = ""
 
@@ -52,7 +53,7 @@ var questions = [
             3: "for loops",
             4: "console.log"
         },
-        correctAnswer: "4"
+        correctAnswer: 4
     },
 ];
 
@@ -72,5 +73,11 @@ function countdown() {
     }, 1000);
 };
 
+function startQuiz() {
+    countdown();
+    startScreen.remove();
+    start.remove();   
+}
 
-start.onclick = countdown;
+
+start.onclick = startQuiz
