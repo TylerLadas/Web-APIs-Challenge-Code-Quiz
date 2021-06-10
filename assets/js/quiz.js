@@ -81,28 +81,32 @@ function quizbox() {
     quizDiv.className = "quizbox";
     document.body.appendChild(quizDiv);
 
-    var quizP = document.createElement("p");
-    quizP.innerText = "hi";
-    quizDiv.appendChild(quizP);
+    var quizH2 = document.createElement("h2");
+    quizH2.innerText = "question";
+    quizDiv.appendChild(quizH2);
 
+    var buttonDiv = document.createElement("div");
+    buttonDiv.className = "buttonDiv";
+    quizDiv.appendChild(buttonDiv);
+    
     var button1 = document.createElement("button");
-    button1.innerText = "";
-    quizDiv.appendChild(button1);
+    button1.innerText = "b1";
+    buttonDiv.appendChild(button1);
 
     var button2 = document.createElement("button");
-    button1.innerText = "";
-    quizDiv.appendChild(button2);
+    button2.innerText = "b2";
+    buttonDiv.appendChild(button2);
 
     var button3 = document.createElement("button");
-    button1.innerText = "";
-    quizDiv.appendChild(button3);
+    button3.innerText = "b3";
+    buttonDiv.appendChild(button3);
 
     var button4 = document.createElement("button");
-    button1.innerText = "";
-    quizDiv.appendChild(button4);
+    button4.innerText = "b4";
+    buttonDiv.appendChild(button4);
 
     var result = document.createElement("p");
-    result.innerText = "";
+    result.innerText = "result";
     quizDiv.appendChild(result);
 }
 
