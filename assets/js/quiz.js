@@ -4,6 +4,8 @@ var start = document.getElementById("start-button");
 
 var message = ""
 
+// creates questions and answers //
+
 var questions = [
     {
         question: "Commonly used data types DO Not Include:",
@@ -73,10 +75,43 @@ function countdown() {
     }, 1000);
 };
 
+// add quizbox//
+function quizbox() {
+    var quizDiv = document.createElement("div");
+    quizDiv.className = "quizbox";
+    document.body.appendChild(quizDiv);
+
+    var quizP = document.createElement("p");
+    quizP.innerText = "hi";
+    quizDiv.appendChild(quizP);
+
+    var button1 = document.createElement("button");
+    button1.innerText = "";
+    quizDiv.appendChild(button1);
+
+    var button2 = document.createElement("button");
+    button1.innerText = "";
+    quizDiv.appendChild(button2);
+
+    var button3 = document.createElement("button");
+    button1.innerText = "";
+    quizDiv.appendChild(button3);
+
+    var button4 = document.createElement("button");
+    button1.innerText = "";
+    quizDiv.appendChild(button4);
+
+    var result = document.createElement("p");
+    result.innerText = "";
+    quizDiv.appendChild(result);
+}
+
+// starts quiz //
 function startQuiz() {
     countdown();
     startScreen.remove();
-    start.remove();   
+    start.remove();
+    quizbox();   
 }
 
 
