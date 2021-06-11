@@ -78,7 +78,7 @@ button:hover {
     text-align: left; 
 }
 
-.gameOver {
+.gameOver, .highScore {
     display: none;
     width: 30%;
     margin:  0 auto;
@@ -96,4 +96,14 @@ button:hover {
 
 .gameOver p input {
     font-size: 20px;
+}
+
+.highScore {
+    display: block;
+    margin-top: 100px;
+}
+
+#scores {
+    background-color: rgb(157, 131, 192);
+    margin-bottom: 10px;
 }
