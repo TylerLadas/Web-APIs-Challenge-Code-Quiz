@@ -8,16 +8,39 @@
     <title>Coding Quiz</title>
 </head>
 <body>
+    <!-- timer and high score  -->
     <header>
         <a href="">View High Scores</a>
         <p>Time:<span id="timer"></span></p>
     </header>
 
-    <main id="startScreen">
+    <!-- start screen -->
+    <div class="startScreen">
         <h1>Coding Quiz Challenge</h1>
         <p>Try to answer the following code-related questions within the time limit.<br> Keep in mind that incorrect answers will penalize your score/time<br> by ten seconds!</p>
-        <button id="start-button">Start Quiz</button>
-    </main>
+        <button id="startButton">Start Quiz</button>
+    </div>
+
+    <!-- quiz screen -->
+    <div class="quizScreen">
+        <h2 class="questionHeader">question</h2>
+        <div class="buttonDiv">
+           <button type="button" id="button0">1</button>
+           <button type="button" id="button1">2</button>
+           <button type="button" id="button2">3</button>
+           <button type="button" id="button3">4</button>   
+        </div>
+        <p id="result">result</p> 
+    </div>
+
+    <!-- game over screen -->
+    <div class="gameOver">
+        <h1>All done!</h1>
+        <p>Your final score is <span class="finalScore"></span>.</p>
+        <p>Enter initials:
+        <input type="text" id="initials" name="initials" placeholder="initials">
+        <button type="submit">submit</button></p>
+    </div> 
 
     <script src="./assets/js/quiz.js"></script>
 </body>

@@ -25,42 +25,41 @@ header p {
     padding: 15px;
 }
 
-/* main {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-} */
+button {
+    background-color: rgb(45, 7, 116);
+    color: white;
+    border-radius: 5px;
+    border: none;
+    padding: 10px 25px;
+}
 
-main h1 {
+button:hover {
+    background-color: rgb(187, 97, 214);
+}
+
+.startScreen h1 {
     text-align: center;
     margin: 40px auto 10px;
 }
 
-main p {
+.startScreen p {
     text-align: center;
     margin: 20px auto;
     font-size: 25px;
 }
 
-main button {
+.startScreen button {
     display: block;
     text-align: center;
     margin: 10px auto;
     font-size: 25px;
-    background-color: rgb(45, 7, 116);
-    color: white;
-    border-radius: 5px;
-    padding: 10px 25px;
-    border: none;
 }
 
-.quizbox {
+.quizScreen {
   margin: 40px 100px 20px 250px;
 }
 
-.quizbox p {
+.quizScreen p {
     font-style: italic;
     color: lightgray;
     border-top: 2px solid lightgray;
@@ -74,10 +73,25 @@ main button {
 }
 
 .buttonDiv button {
-    background-color: rgb(45, 7, 116);
-    color: white;
-    border-radius: 5px;
-    border: none;
-    width: 33%;  
+    width: 33%;
+    text-align: left; 
 }
 
+.gameOver {
+    width: 30%;
+    margin:  0 auto;
+    text-align: left;
+    line-height: 1.5;
+}
+
+.gameOver p {
+    font-size: 20px;
+}
+
+.gameOver p button {
+    padding: 5px 25px;
+}
+
+.gameOver p input {
+    font-size: 20px;
+}
