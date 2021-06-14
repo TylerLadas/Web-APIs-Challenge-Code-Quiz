@@ -9,6 +9,11 @@ var button2 = document.getElementById("button2");
 var button3 = document.getElementById("button3");
 var gameOver = document.querySelector(".gameOver");
 var result = document.getElementById("result");
+var finalScore = document.querySelector(".finalScore");
+var submitButton = document.getElementById("submit");
+var scores = document.getElementById("scores");
+var initials = document.getElementById("initials");
+var clearButton = document.getElementById("clear");
 var questionCount = 0;
 var timeLeft = 75;
 
@@ -71,14 +76,15 @@ var questions = [
 function countdown() {
 
     var timeInterval = setInterval(function(){
-        if (timeLeft >= 0) {
-            timer.textContent = timeLeft;
-            timeLeft--;
-        } else {
+        if (timeLeft <= 0 || questionCount === questions.length) {
             timer.textContent = "";
             clearInterval(timeInterval);
             quizScreen.style.display = "none";
             gameOver.style.display = "block";
+            finalScore.textContent = timeLeft;
+            } else {
+            timer.textContent = timeLeft;
+            timeLeft--;
         }
     }, 1000);
 };
@@ -110,13 +116,17 @@ function checkAnswer(choice) {
 
     if (questionCount < questions.length) {
         nextQuestion();
-    } else {
-        timer.textContent = "";
-        quizScreen.style.display = "none";
-        gameOver.style.display = "block";
-    }
+    } 
 };
 
+function submitScore() {
+    var userInitials = initials.value;
+    if (userInitials ==="") {
+        alert ("Please enter your 2 initials!");
+        return;
+    }
+    console.log(userInitials);
+};
 
 //EVENT LISTENERS//
 
@@ -137,5 +147,12 @@ button1.addEventListener("click", choose2);
 button2.addEventListener("click", choose3);
 button3.addEventListener("click", choose4);
 
+// submit buttons //
+submitButton.addEventListener("click", submitScore)
 
-
+// submit with enter buton //
+initials.addEventListener("keydown", function(event) {
+    if (event.key === 'Enter') {
+        submitScore();
+    }
+});
