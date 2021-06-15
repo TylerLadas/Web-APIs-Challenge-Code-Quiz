@@ -9,7 +9,7 @@
 </head>
 <body>
     <!-- timer and high score  -->
-    <header>
+    <header id="header">
         <a href="highscore.html">View High Scores</a>
         <p>Time:<span id="timer"></span></p>
     </header>
@@ -43,6 +43,13 @@
             <button type="submit" id="submit">submit</button></p>
         </form>
      </div> 
+
+     <div id="highScore">
+        <h1>High Scores</h1>
+        <div id="scores"></div>
+        <a href="./index.html"><button type="button">Go back</button></a>
+        <button type="button" id="clear">Clear high scores</button>
+    </div>
 
     <script src="./assets/js/quiz.js"></script>
 </body>

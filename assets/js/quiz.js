@@ -4,6 +4,7 @@ var timer = document.getElementById("timer");
 var startButton = document.getElementById("startButton");
 var quizScreen = document.querySelector(".quizScreen");
 var questionDisplay = document.getElementById("questionDisplay");
+var scoreDisplay = document.getElementById("highScore")
 var button0 = document.getElementById("button0");
 var button1 = document.getElementById("button1");
 var button2 = document.getElementById("button2");
@@ -15,9 +16,9 @@ var submitButton = document.getElementById("submit");
 var scores = document.getElementById("scores");
 var initials = document.getElementById("initials");
 var clearButton = document.getElementById("clear");
+var header = document.getElementById("header")
 var questionCount = 0;
 var timeLeft = 75;
-
 // creates questions and answers array //
 var questions = [
     {
@@ -124,6 +125,10 @@ function checkAnswer(choice) {
 function submitScore(event) {
     event.preventDefault();
 
+    header.style.display = "none";
+    gameOver.style.display = "none";
+    scoreDisplay.style.display = "block";
+
     var userInitials = initials.value;
     
     let result = {
@@ -143,12 +148,6 @@ function submitScore(event) {
 
     localStorage.setItem("high score", scoresArrayString);
   
-    showHighScore();  
-};
-// retrieve score from local storage //
- 
-function showHighScore() {
-    location.href = "highscore.html";
     var savedScores = localStorage.getItem("high score");
 
     if (savedScores === null) {
@@ -163,7 +162,7 @@ function showHighScore() {
         eachScore.innerHTML = retrievedScores[i].name + ": " + retrievedScores[i].score;       
         scores.appendChild(eachScore);
     }
-};
+}
 
 
 //EVENT LISTENERS//
