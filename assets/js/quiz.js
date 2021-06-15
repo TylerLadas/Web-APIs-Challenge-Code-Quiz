@@ -1,4 +1,5 @@
-// global variables //
+// global variables /
+
 var timer = document.getElementById("timer");
 var startButton = document.getElementById("startButton");
 var quizScreen = document.querySelector(".quizScreen");
@@ -119,14 +120,51 @@ function checkAnswer(choice) {
     } 
 };
 
-function submitScore() {
+// submit score to local storage//
+function submitScore(event) {
+    event.preventDefault();
+
     var userInitials = initials.value;
+    
+    let result = {
+        name: userInitials, 
+        score: timeLeft
+    };
+    
     if (userInitials ==="") {
         alert ("Please enter your 2 initials!");
         return;
     }
-    console.log(userInitials);
+    
+    var scoresArray = [];
+    scoresArray.push(result);
+    var scoresArrayString = JSON.stringify(scoresArray);
+
+
+    localStorage.setItem("high score", scoresArrayString);
+  
+    showHighScore();  
 };
+// retrieve score from local storage //
+ 
+function showHighScore() {
+    location.href = "highscore.html";
+    var savedScores = localStorage.getItem("high score");
+
+    if (savedScores === null) {
+        return;
+    }
+
+    retrievedScores = JSON.parse(savedScores);
+ 
+    //display scores from storage//
+    for (i = 0; i < retrievedScores.length; i++) {
+        var eachScore = document.createElement("p");
+        eachScore.innerHTML = retrievedScores[i].name + ": " + retrievedScores[i].score;       
+        scores.appendChild(eachScore);
+    }
+};
+
 
 //EVENT LISTENERS//
 
@@ -148,11 +186,4 @@ button2.addEventListener("click", choose3);
 button3.addEventListener("click", choose4);
 
 // submit buttons //
-submitButton.addEventListener("click", submitScore)
-
-// submit with enter buton //
-initials.addEventListener("keydown", function(event) {
-    if (event.key === 'Enter') {
-        submitScore();
-    }
-});
+submitButton.addEventListener("click", submitScore);
