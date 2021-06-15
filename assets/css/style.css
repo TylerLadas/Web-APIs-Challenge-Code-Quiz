@@ -78,7 +78,7 @@ button:hover {
     text-align: left; 
 }
 
-.gameOver, .highScore {
+.gameOver {
     display: none;
     width: 30%;
     margin:  0 auto;
@@ -99,10 +99,12 @@ button:hover {
 }
 
 #highScore {
-    display: none;
-    margin: 100px 250px 0;
-    text-align: center;
     
+    text-align: left; 
+    display: none;
+    width: 30%;
+    margin:  100px auto;
+    line-height: 1.5; 
 }
 
 #scores {

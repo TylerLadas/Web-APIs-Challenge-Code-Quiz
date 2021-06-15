@@ -1,6 +1,7 @@
 // global variables /
 
 var timer = document.getElementById("timer");
+var startScreen = document.querySelector(".startScreen")
 var startButton = document.getElementById("startButton");
 var quizScreen = document.querySelector(".quizScreen");
 var questionDisplay = document.getElementById("questionDisplay");
@@ -16,7 +17,8 @@ var submitButton = document.getElementById("submit");
 var scores = document.getElementById("scores");
 var initials = document.getElementById("initials");
 var clearButton = document.getElementById("clear");
-var header = document.getElementById("header")
+var header = document.getElementById("header");
+var headerScore = document.getElementById("headerScore");
 var questionCount = 0;
 var timeLeft = 75;
 // creates questions and answers array //
@@ -159,7 +161,7 @@ function submitScore(event) {
     //display scores from storage//
     for (i = 0; i < retrievedScores.length; i++) {
         var eachScore = document.createElement("p");
-        eachScore.innerHTML = retrievedScores[i].name + ": " + retrievedScores[i].score;       
+        eachScore.innerHTML = retrievedScores[i].name + " - " + retrievedScores[i].score;       
         scores.appendChild(eachScore);
     }
 }
@@ -186,3 +188,31 @@ button3.addEventListener("click", choose4);
 
 // submit buttons //
 submitButton.addEventListener("click", submitScore);
+
+//header score link //
+
+headerScore.addEventListener("click", function() {
+    header.style.display = "none";
+    startScreen.style.display = "none";
+    scoreDisplay.style.display = "block";
+    var savedScores = localStorage.getItem("high score");
+
+    if (savedScores === null) {
+        return;
+    }
+
+    retrievedScores = JSON.parse(savedScores);
+ 
+    for (i = 0; i < retrievedScores.length; i++) {
+        var eachScore = document.createElement("p");
+        eachScore.innerHTML = retrievedScores[i].name + " - " + retrievedScores[i].score;       
+        scores.appendChild(eachScore);
+    }
+});
+
+// clear scores //
+
+clearButton.addEventListener("click", function() {
+    localStorage.removeItem("high score");
+    scores.innerHTML="";
+})
