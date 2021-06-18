@@ -195,6 +195,7 @@ headerScore.addEventListener("click", function() {
     header.style.display = "none";
     startScreen.style.display = "none";
     scoreDisplay.style.display = "block";
+    gameOver.style.display = "none";
     var savedScores = localStorage.getItem("high score");
 
     if (savedScores === null) {
